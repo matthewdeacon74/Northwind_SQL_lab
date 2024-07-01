@@ -45,7 +45,9 @@ SELECT * FROM orders LEFT JOIN customers ON orders.customer_id = customers.custo
 SELECT * FROM orders RIGHT JOIN customers ON orders.customer_id = customers.customer_id;
 
 -- Q15
-SELECT employees.employee_id, employees.city, orders.order_id, orders.ship_city, orders.ship_country FROM employees INNER JOIN orders ON orders.ship_city = employees.city WHERE employees.city = 'London';
+SELECT employees.employee_id, employees.city, orders.order_id, orders.ship_city, orders.ship_country FROM orders 
+INNER JOIN employees ON orders.employee_id = employees.employee_id 
+WHERE employees.city = 'London'; 
 
 -- Q16
 SELECT orders.ship_name FROM orders JOIN order_details ON orders.order_id = order_details.order_id 
